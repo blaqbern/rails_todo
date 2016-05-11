@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Todo List</title>
+  <%= stylesheet_link_tag    "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" %>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= stylesheet_link_tag    "//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div class='navbar navbar-inverse'>
+    <div class='container-fluid'>
+      <div class='navbar-header'>
+        <%= link_to content_tag(:span, '', class: 'glyphicon glyphicon-home'), root_path, class:'navbar-brand' %>
+      </div>
+      <% if logged_in? %>
+      <ul class='nav navbar-nav navbar-right'>
+        <li><%= link_to 'my lists', todo_lists_path %></li>
+        <li><%= link_to 'account', account_path(current_user.account) %></li>
+        <li><%= link_to 'logout', logout_path, method: :delete %></li>
+      </ul>
+      <% end %>
+    </div>
+  </div><!--close 'navbar'-->
+
+
+  <div class='container'>
+    <% flash.each do |key, value| %>
+      <% if key.to_s == 'notice' %>
+        <% class_names = 'alert alert-success' %>
+      <% elsif key.to_s == 'alert' %>
+        <%class_names = 'alert alert-danger' %>
+      <% end %>
+      <%= content_tag(:div, "#{key.upcase}: #{value}", class: class_names) %>
+    <% end %>
+
+    <%= yield %>
+  </div>
+
+  <div class='footer'>
+    <hr >
+    <p class='pull-right'><span class='glyphicon glyphicon-copyright-mark'> C-3B0 2015</p>
+  </div>
+</body>
+</html>

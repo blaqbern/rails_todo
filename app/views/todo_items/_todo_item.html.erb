@@ -1,0 +1,23 @@
+<%= content_tag :li, class: 'list-group-item' do %>
+  <div>
+    <h3>
+      <%= link_to todo_item.task_title, [@todo_list, todo_item], remote: true %>
+      <%= link_to '#', remote: true, class: 'mark-done', data: {done: todo_item.done?, list: @todo_list.id, item: todo_item.id}  do %>
+        <% common_classes = 'item-done-badge pull-right glyphicon' %>
+        <% if todo_item.done? %>
+          <%= content_tag :span, '', class: "#{common_classes} glyphicon-ok-sign done" %>
+        <% else %>
+          <%= content_tag :span, '', class: "#{common_classes} glyphicon-exclamation-sign pending" %>
+        <% end %>
+      <% end %>
+    </h3>
+    <%= content_tag :div, '', id: "details-container-#{@todo_list.id}-#{todo_item.id}" %>
+    <hr/>
+    Due on <%= time_tag todo_item.due_date %>
+    <div class='pull-right'>
+      <%= link_to 'Edit', edit_todo_list_todo_item_path(@todo_list, todo_item), remote: true %> |
+      <%= link_to 'Destroy', [@todo_list, todo_item], method: :delete, data: {confirm: "Delete item '#{todo_item.task_title}' permenantly?"} %>
+    </div>
+  </div>
+  <%= content_tag :div, '', id: "form-container-#{@todo_list.id}-#{todo_item.id}" %>
+<% end %>

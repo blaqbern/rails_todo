@@ -1,0 +1,32 @@
+<div class='page-header'>
+  <h1>
+    <%= @todo_list.list_name %>
+    <small>Due on <%= time_tag @todo_list.list_due_date %></small>
+  </h1>
+</div>
+
+<div class='row'>
+  <div class='col-md-2'>
+    <ul class='nav nav-pills nav-stacked'>
+      <li><%= link_to 'Edit', edit_todo_list_path(@todo_list) %></li>
+      <li><%= link_to 'Back', todo_lists_path %></li>
+    </ul>
+  </div>
+  <div class='col-md-10 col-sm-12' id='main-list'>
+    <ul class='list-group'>
+      <li class='list-group-item alt'>
+        <h3 class='compact'>
+          <%= link_to 'Add a new list item', new_todo_list_todo_item_path(@todo_list), remote: true, class: 'no-link-color' %>
+          <%= link_to new_todo_list_todo_item_path(@todo_list), remote: true, class: 'no-link-color' do %>
+            <% content_tag(:span, '', class: 'pull-right glyphicon glyphicon-plus-sign') %>
+          <% end %>
+        </h3>
+        <div class='hidden' id='form-container'></div>
+      </li>
+      <%= render partial: 'todo_items/todo_item', collection: @items %>
+    </ul>
+  </div>
+  <div class='col-md-12 text-center'>
+    <%= will_paginate @items, renderer: BootstrapPagination::Rails %>
+  </div>
+</div>

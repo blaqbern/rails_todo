@@ -1,0 +1,11 @@
+<div class='row'>
+  <div class='col-md-1 col-xs-1'>
+    <%= content_tag :a, href: '', id: "close-desc-#{@todo_list.id}-#{@todo_item.id}" do %>
+      <span class='glyphicon glyphicon-menu-up'></span>
+    <% end %>
+  </div>
+  <div class='col-md-11 col-xs-11'>
+    <%= @todo_item.description %>
+  </div>
+  <hr/>
+</div>

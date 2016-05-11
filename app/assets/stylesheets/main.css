@@ -1,0 +1,67 @@
+body {
+  margin: 15px;
+  background: #fffef9;
+}
+
+h3 {
+  margin-top: 10px;
+}
+
+.navbar-inverse {
+  margin-bottom: 15px;
+  border: #4f3365;
+}
+
+.page-header {
+  margin-top: 0;
+  border-bottom: 1px solid #eeede8;
+}
+
+.footer hr {
+  border-top: 1px solid #999;
+}
+
+a, a:visited {
+  color: #337ab7;
+}
+
+a:hover {
+  color: #66adea;
+}
+
+a.no-link-color,
+a.no-link-color:visited {
+  color: #808080;
+}
+
+a.no-link-color:hover {
+  color: #4d4d4d;
+}
+
+.done {
+  color: #70cc70;
+}
+
+.done.item-done-badge:hover {
+  color: #3d993d;
+}
+
+.pending {
+  color: #ed6763;
+}
+
+.pending.item-done-badge:hover {
+  color: #ba3430;
+}
+
+.alt {
+  background: #f5f4ef;
+}
+
+.compact {
+  margin: 0;
+}
+
+hr {
+  margin: 5px;
+}

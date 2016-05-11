@@ -1,0 +1,23 @@
+<div class='page-header'>
+  <h1>Account page</h1>
+</div>
+
+<div class='row'>
+  <div class='col-md-2'>
+    <ul class='nav nav-pills nav-stacked'>
+      <li><%= link_to 'Edit', edit_account_path(@account) %></li>
+      <!-- TODO add back link -->
+    </ul>
+  </div>
+  <div class='col-md-10 col-sm-12'>
+    <div class='panel panel-default'>
+      <div class='panel-heading'>
+        <h3><%= "#{@account.first_name} #{@account.last_name}" %></h3>
+      </div>
+      <div class='panel-body'>
+        <p>Gender: <%= @account.gender %></p>
+        <p>Age: <%= @account.age %></p>
+      </div>
+    </div>
+  </div>
+</div>

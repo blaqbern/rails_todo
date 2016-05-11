@@ -1,0 +1,11 @@
+<div class='page-header'>
+  <h3>
+    Edit todo item
+    <small>'<%= @todo_item.task_title %>'</small>
+    <%= content_tag :button, class: 'btn btn-warning pull-right', id: "cancel-btn-#{@todo_list.id}-#{@todo_item.id}" do %>
+      <span class='glyphicon glyphicon-remove'></span>
+    <% end %>
+  </h3>
+</div>
+
+<%= render 'form' %>

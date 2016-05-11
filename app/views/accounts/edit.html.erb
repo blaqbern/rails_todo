@@ -1,0 +1,14 @@
+<div class='page-header'>
+  <h1>Edit account information <%= "#{@account.first_name} #{@account.last_name}" %></h1>
+</div>
+
+<div class='row'>
+  <div class='col-md-2'>
+    <ul class='nav nav-pills nav-stacked'>
+      <li><%= link_to 'Back', account_path(@account) %></li>
+    </ul>
+  </div>
+  <div class='col-md-10'>
+    <%= render 'form' %>
+  </div>
+</div>

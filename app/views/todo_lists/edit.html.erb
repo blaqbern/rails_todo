@@ -1,0 +1,39 @@
+<div class='page-header'>
+  <h1>Edit Todo List '<%= @todo_list.list_name %>'</h1>
+</div>
+
+<div class='row'>
+  <div class='col-md-2'>
+    <ul class='nav nav-pills nav-stacked'>
+      <li><%= link_to 'Show', @todo_list %></li>
+      <li><%= link_to 'Back', todo_list_path(@todo_list) %></li>
+    </ul>
+  </div>
+  <div class='col-md-10'>
+    <%= form_for(@todo_list) do |f| %>
+      <% if @todo_list.errors.any? %>
+        <div class='alert alert-danger' id="error_explanation">
+          <h3><%= pluralize(@todo_list.errors.count, "error") %> prohibited this todo_list from being saved:</h3>
+
+          <ul>
+          <% @todo_list.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="actions">
+        <div class="field form-group">
+          <%= f.label :list_name, 'Name' %>
+          <%= f.text_field :list_name, class: 'form-control', placeholder: 'Your new list' %>
+        </div>
+        <div class="field form-group form-inline">
+          <%= f.label :list_due_date, 'Due date' %><br>
+          <%= f.text_field :list_due_date, class: 'form-control date-picker' %>
+        </div>
+        <%= f.submit class: 'btn btn-info' %>
+      </div>
+    <% end %>
+  </div>
+</div>

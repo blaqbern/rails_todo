@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  tag_name: MyString
+  todo_item: 
+
+two:
+  tag_name: MyString
+  todo_item: 

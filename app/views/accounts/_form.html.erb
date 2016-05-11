@@ -1,0 +1,15 @@
+<%= form_for(@account) do |f| %>
+  <div class="actions">
+    <div class="field form-group">
+      <%= f.label :first_name, 'First name' %>
+      <%= f.text_field :first_name, class: 'form-control', placeholder: 'First name' %>
+      <%= f.label :last_name, 'Last name' %>
+      <%= f.text_field :last_name, class: 'form-control', placeholder: 'Last name' %>
+      <%= f.label :age, 'Age' %>
+      <%= f.select :age, (20..100).to_a, {}, class: 'form-control' %>
+      <%= f.label :gender, 'Gender' %>
+      <%= f.select :gender, ['male', 'female', 'N/A'], {}, class: 'form-control' %>
+    </div>
+    <%= f.submit class: 'btn btn-info' %>
+  </div>
+<% end %>

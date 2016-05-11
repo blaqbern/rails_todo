@@ -1,0 +1,22 @@
+<% completed = true %>
+<% todo_list.todo_items.each {|item| completed = false unless item.done?} %>
+<li class='list-group-item'>
+  <div>
+    <h3>
+      <%= link_to todo_list.list_name, todo_list %>
+      <span class='badge'><%= pluralize(todo_list.todo_items.length, 'item') if todo_list.todo_items.length > 0 %></span>
+      <% if completed %>
+        <span class='pull-right glyphicon glyphicon-ok-sign done'></span>
+      <% else %>
+        <span class='pull-right glyphicon glyphicon-exclamation-sign pending'></span>
+      <% end %>
+    </h3>
+    <hr/>
+    Due on <%= time_tag todo_list.list_due_date %>
+    <div class='pull-right'>
+      <%= link_to 'Edit', edit_todo_list_path(todo_list), remote: true %> |
+      <%= link_to 'Destroy', todo_list, method: :delete, data: {confirm: "Delete list '#{todo_list.list_name}' permenantly?"} %>
+    </div>
+  </div>
+  <%= content_tag :div, '', id: "form-container-#{todo_list.id}" %>
+</li>
